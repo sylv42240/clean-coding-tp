@@ -1,12 +1,9 @@
 package fr.appsolute.tp.ui.viewmodel
 
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import fr.appsolute.tp.RickAndMortyApplication
 import fr.appsolute.tp.data.model.Episode
-import fr.appsolute.tp.data.repository.CharacterRepository
 import fr.appsolute.tp.data.repository.EpisodeRepository
 import kotlinx.coroutines.launch
 
@@ -21,12 +18,6 @@ class EpisodeViewModel private constructor(
     fun getAllEpisode(onSuccess: OnSuccess<List<Episode>>) {
         viewModelScope.launch {
             repository.getAllEpisode()?.run(onSuccess)
-        }
-    }
-
-    fun getEpisodeById(id: Int, onSuccess: OnSuccess<Episode>){
-        viewModelScope.launch {
-            repository.getEpisodeById(id)?.run(onSuccess)
         }
     }
 

@@ -5,7 +5,7 @@
     android:id="@+id/holder_episode_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    tools:layout_margin="8dp"
     tools:context="fr.appsolute.tp.ui.widget.holder.EpisodeViewHolder"
     tools:layout_height="62dp">
 

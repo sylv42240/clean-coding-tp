@@ -60,6 +60,7 @@ class CharacterDetailFragment : Fragment() {
             episode_recycler_view.apply {
                 adapter = episodeAdapter
                 layoutManager = LinearLayoutManager(requireContext())
+                if (itemDecorationCount == 0) addItemDecoration(EpisodeAdapter.ItemDecoration())
             }
         }
     }
