@@ -33,7 +33,7 @@ class CharacterRepositoryTest {
     }
 
     @Test
-    fun getPaginatedListTest() = runBlocking {
+    fun getPaginatedListTest() = runBlocking(testDispatcher) {
         val value = repository.getPaginatedList(this).getBlockingValue(
             timeOut = 10
         )

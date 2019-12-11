@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import fr.appsolute.tp.R
 import fr.appsolute.tp.data.model.Character
 import fr.appsolute.tp.ui.adapter.CharacterAdapter
 import fr.appsolute.tp.ui.viewmodel.CharacterViewModel
+import fr.appsolute.tp.ui.viewmodel.EpisodeViewModel
 import fr.appsolute.tp.ui.widget.holder.OnCharacterClickListener
 import kotlinx.android.synthetic.main.fragment_character_list.view.*
 
@@ -22,12 +24,14 @@ const val CHARACTER_ID_EXTRA = "charId"
 class CharacterListFragment : Fragment(), OnCharacterClickListener {
 
     private lateinit var characterViewModel: CharacterViewModel
+    private lateinit var episodeViewModel: EpisodeViewModel
     private lateinit var characterAdapter: CharacterAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.run {
             characterViewModel = ViewModelProvider(this, CharacterViewModel).get()
+            episodeViewModel = ViewModelProvider(this, EpisodeViewModel).get()
         } ?: throw IllegalStateException("Invalid Activity")
     }
 
@@ -49,6 +53,7 @@ class CharacterListFragment : Fragment(), OnCharacterClickListener {
         characterViewModel.charactersPagedList.observe(this) {
             characterAdapter.submitList(it)
         }
+        episodeViewModel.getAllEpisode {}
     }
 
     // Implementation of OnCharacterClickListener

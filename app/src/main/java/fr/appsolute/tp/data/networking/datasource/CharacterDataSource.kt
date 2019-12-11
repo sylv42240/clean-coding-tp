@@ -59,7 +59,7 @@ class CharacterDataSource private constructor(
                     if (response.information.next.isNotEmpty()) params.key + 1 else null
                 )
             } catch (e: Exception) {
-                Log.e(TAG, "loadInitial: ", e)
+                Log.e(CHARACTER_TAG, "loadInitial: ", e)
             }
         }
     }
@@ -78,7 +78,7 @@ class CharacterDataSource private constructor(
     }
 
     companion object {
-        private const val TAG: String = "CharacterDataSource"
+        private const val CHARACTER_TAG: String = "CharacterDataSource"
         private const val FIRST_KEY = 1
     }
 
